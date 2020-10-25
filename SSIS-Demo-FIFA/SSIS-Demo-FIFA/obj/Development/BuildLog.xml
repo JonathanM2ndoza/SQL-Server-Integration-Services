@@ -2,12 +2,12 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>SSIS-Demo-FIFA</Name>
-    <LastWriteTime>2020-10-25T23:37:36.5205874Z</LastWriteTime>
+    <LastWriteTime>2020-10-25T23:47:53.883481Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
-      <Name>Demo1-FIFA.dtsx</Name>
+      <Name>Export-FIFA.dtsx</Name>
       <LastWriteTime>2020-10-25T23:34:47.4347014Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
