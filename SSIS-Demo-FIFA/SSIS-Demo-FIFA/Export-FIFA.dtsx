@@ -11,8 +11,8 @@
   DTS:LocaleID="8202"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{8654E0FF-6BA6-4909-822C-1EDD0B23C099}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{AED3687F-2053-438B-8CBF-99216B484702}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFAVMYqgzUSRa42z3oArVQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADh7olMMnbU6E4asH7jqKNrvXUKXYcnJZ7nUHLJa8b2ygAAAAAOgAAAAAIAACAAAADKacQsmWDyk4u1PoYiWi8fnmHGcZi6tPAdHjAuMy8tVCAAAACDJ5u35rKNkfXsAxkfm0QHM4g+lastzhmv4JGGpVtIl0AAAABGmp28+CsWD9tA4zWd2PoiAtcaxmPZN448+2dPc7QIu7493Bhb6DqzNVwXYmMXx1cwUszYwVY8oq9ctL9sltC5</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFAVMYqgzUSRa42z3oArVQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADynWFm2FnsEDQVFzc8HyLsQv8ANRBxCJzyzhLyOl9N7gAAAAAOgAAAAAIAACAAAACmCCPzMRR5HdydBjPCBK1IWDzbFlI/94SPhFTT5lSuzCAAAABziEaiIePzTYMxw9E2jTswFnVhPgRa/FDvSEkrJ93MM0AAAADpAA7DLtEPBWoPITMEwMW95+p4Tl/J+ACUpK0vjJIhDgpRjGT5ZstnUlbYKlFEhvYYGYm0Ll85plwY3XU8Q5Tr</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -42,7 +42,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFAVMYqgzUSRa42z3oArVQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB4pcxkq+1PFwD5CgrNd8uUtSYbOzfZQqFJgReyoiSxPQAAAAAOgAAAAAIAACAAAADqVHYNPozMdYxjTtWfDfgo8rpJHdixgzNFuHbsmSAJNyAAAADQrd01pmaiYXyTEJ3P+QzN0pefso48KjIOlRuJLGdWAkAAAACDvv1bV1yFKXu74+MnL0wFv+Zd+9XCdknjccI9LOmUjz2BA1F5twBeOWl2Jsm/WWZnfVDIUF8+sBCETXYXfqMz</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFAVMYqgzUSRa42z3oArVQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACrM4rhcvQHFATtWHZHHKLZA4TibfrKN+8SgH7esPSSugAAAAAOgAAAAAIAACAAAAD04R+QK1gA/xdHbZy7KXm4HVg+MWkjsPGw23S3SNf9gyAAAADGXbyRb6NkKyiNnLcP9kFu6zX2K1bJkmA6vzJIX/DvkUAAAACEPu4mSwfLYjrZhfY33Fl4UkA0fNl/10E89SKZGLWeDFbhG2cwMu88nvTyT8fyD2g5w4aP1/0qOjhsAQU7vYH+</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -692,7 +692,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Export Table FIFA\Source Table FIFA DB SSIS">
+    design-time-name="Package\Export Table FIFA\Destination Table FIFA_EXPORT DB ENTRY">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -705,7 +705,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Export Table FIFA\Destination Table FIFA_EXPORT DB ENTRY">
+    design-time-name="Package\Export Table FIFA\Source Table FIFA DB SSIS">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

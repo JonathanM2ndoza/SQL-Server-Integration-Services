@@ -26,15 +26,48 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-6HE6S1A</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFAVMYqgzUSRa42z3oArVQAAAAACAAAAAAAQZgAAAAEAACAAAABPp4aOOQk7wwvt7LjZS2sOcH4aajnb5ZTtAObFnqplEQAAAAAOgAAAAAIAACAAAADkSpqBx4f0R9W3O2BHPzH46M82/vbxBlFe6eSYfxt9W5AAAAABtlBBf4kVkrlRZVjA5I62wi7Rx3vSufIULyL31MzLRPLbMZDDlp9BCqU6o0gHxNErCPCoP1+WhFHAEpM81/pcb8dtUw3CtGtVPipSM4JoJ+vq9uJTSNq7w+7L08jL7qL2wR5CPtqJ4LloqDGo1FyH1F7ofjV5jGCwukAEhTLIegOQQNynmbp+/cxzt/b78MtAAAAAJJQbDXpgUDIg6TGCikuKhJMXPMqZfeVSwVCrPLwfFgxsU5/SV1U8dWGKF3vk34vosplTuGAD5vnzx+7ozhuo3Q==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFAVMYqgzUSRa42z3oArVQAAAAACAAAAAAAQZgAAAAEAACAAAAB93Nv/FQsh9M5U/+IogNUGeAR6IipVD5YvxCuOAOfqrAAAAAAOgAAAAAIAACAAAABZpHJg0dd4OoLCnARL6CeYHWZI9O5WA3UFrFQexSPTAZAAAAAJS7U/imseaUVMVtHftpbcIGlknpM/+K4BDdQTQC4dIjiwze3Zv6XZ98Tgg2ggHHDnnlqZWEn1DVUlJ88YU7oyiayjNgL3rdL+PEqNmrMqB3DNPHFgorFMFWeTVDtttrHPaR45PBxhOxMe+6yupGkRyANPuLLGzl7bl8AwntYR4EExOyi2E3Q5wtsE+COW2k9AAAAAP8lc/RoHA3ttCykNPsaf4pyLZAD7tytU2eWL8Yg7zDy44/6EBxvnNIYCjlmq8VTiv7TfPY+XcxmuZKWmrfKRpQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
           <SSIS:Package SSIS:Name="Export-FIFA.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
-        <SSIS:ConnectionManagers />
+        <SSIS:ConnectionManagers>
+          <SSIS:ConnectionManager SSIS:Name="Test-File.txt.conmgr" />
+        </SSIS:ConnectionManagers>
         <SSIS:DeploymentInfo>
-          <SSIS:ProjectConnectionParameters />
+          <SSIS:ProjectConnectionParameters>
+            <SSIS:Parameter SSIS:Name="CM.FILE_FILE_TEST.ConnectByProxy">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">false</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+            <SSIS:Parameter SSIS:Name="CM.FILE_FILE_TEST.ConnectionString">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="CreationName">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">C:\Users\jmendoza\source\repos\JonathanM2ndoza\SQL-Server-Integration-Services\SQL-Server-Scripts\Test-File.txt</SSIS:Property>
+                <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
+              </SSIS:Properties>
+            </SSIS:Parameter>
+          </SSIS:ProjectConnectionParameters>
           <SSIS:PackageInfo>
             <SSIS:PackageMetaData SSIS:Name="Export-FIFA.dtsx">
               <SSIS:Properties>
@@ -42,10 +75,10 @@
                 <SSIS:Property SSIS:Name="Name">Package</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">10</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">11</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{8654E0FF-6BA6-4909-822C-1EDD0B23C099}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{AED3687F-2053-438B-8CBF-99216B484702}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
