@@ -11,11 +11,26 @@
   DTS:LocaleID="8202"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="11"
-  DTS:VersionGUID="{AED3687F-2053-438B-8CBF-99216B484702}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{F6B8AC6A-51FE-4850-B73E-C6888951ACA1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ENTRY]"
+      DTS:CreationName="ADO.NET:SQL"
+      DTS:DTSID="{F0CD27DB-0923-48FF-9FB5-0F2F1C0AA695}"
+      DTS:ObjectName="ENTRY">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;User ID=sa;Connect Timeout=30;">
+          <DTS:Password
+            DTS:Name="PWD"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFAVMYqgzUSRa42z3oArVQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACvWmObwfgfWYCMWlakP0aOLDH0PgUErhoAbzekjPxfZAAAAAAOgAAAAAIAACAAAACIE4SLCiQaJ+9nFVLK1ttqBXKfHkfP1fcm/ObZYWDr6yAAAABx0NCnsynwoUh+tewfKF/ftEExU+cFMGqH2boI7WoWN0AAAADn9A6N5XvQXO3SfzTwJwucXkyZyqlz1wAWwB84RhnDkRZ7MqL7i+L8hokov08J1GfY1NbSKpILAMlQtSWTiwhs</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[OLEDB_SQL_ENTRY]"
       DTS:CreationName="OLEDB"
@@ -27,7 +42,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFAVMYqgzUSRa42z3oArVQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADynWFm2FnsEDQVFzc8HyLsQv8ANRBxCJzyzhLyOl9N7gAAAAAOgAAAAAIAACAAAACmCCPzMRR5HdydBjPCBK1IWDzbFlI/94SPhFTT5lSuzCAAAABziEaiIePzTYMxw9E2jTswFnVhPgRa/FDvSEkrJ93MM0AAAADpAA7DLtEPBWoPITMEwMW95+p4Tl/J+ACUpK0vjJIhDgpRjGT5ZstnUlbYKlFEhvYYGYm0Ll85plwY3XU8Q5Tr</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFAVMYqgzUSRa42z3oArVQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAUu8KmehPy3XqToy8AZdTmcD4sxHv7aupr2CnfQUyoWAAAAAAOgAAAAAIAACAAAAA6b+WP6P++vYGRcjHgU+RJ4gHm/FsSGXZl2KrR8Eg80SAAAAB111X4B/uYy63y0hJPC/WeAkINZmT4C2EuQ70ALgeHjEAAAAAmq3I923KV6CMBcD7SEFb01cw2dAE5FUW9fzlq3LSyVuFlOZfuG1RYXKkjGCefMrGgG43ug1885IpBsvpYSL2k</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -42,12 +57,22 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFAVMYqgzUSRa42z3oArVQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACrM4rhcvQHFATtWHZHHKLZA4TibfrKN+8SgH7esPSSugAAAAAOgAAAAAIAACAAAAD04R+QK1gA/xdHbZy7KXm4HVg+MWkjsPGw23S3SNf9gyAAAADGXbyRb6NkKyiNnLcP9kFu6zX2K1bJkmA6vzJIX/DvkUAAAACEPu4mSwfLYjrZhfY33Fl4UkA0fNl/10E89SKZGLWeDFbhG2cwMu88nvTyT8fyD2g5w4aP1/0qOjhsAQU7vYH+</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFAVMYqgzUSRa42z3oArVQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACZn7TOv1hIEHniheUCBV8lENjVlcyoSZ/VxiBHx1G4/AAAAAAOgAAAAAIAACAAAADWD5DMLS4qy5KxMkTOZz8RN4Ond2DKJkvFZbCGHAs8ACAAAAD6Ty5mWT9TvQ8CUyJ2S9aXvtwp6lWlJXWpgfIuI+1kO0AAAADNxywirqOISg/4he7RwotD189mE5w+4EczGdO9kYGjLDB2OsSbOJ+frqCfdBm1qfVqKw94VeebrWrg6Ar82Byr</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:Variables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8E753D92-1C0A-49A8-9A3B-C7C18959C1AB}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Fecha_Test">
+      <DTS:VariableValue
+        DTS:DataType="7">10/28/2020</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
       DTS:refId="Package\Export Table FIFA"
@@ -633,7 +658,61 @@
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Ejecutar instrucción T-SQL, Delete Data"
+      DTS:CreationName="Microsoft.DbMaintenanceTSQLExecuteTask"
+      DTS:Description="Tarea Ejecutar instrucción T-SQL"
+      DTS:DTSID="{18D601BD-A3B9-446C-86B7-8548B22DE154}"
+      DTS:ExecutableType="Microsoft.DbMaintenanceTSQLExecuteTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Ejecutar instrucción T-SQL, Delete Data"
+      DTS:TaskContact="Execute T-SQL Statement Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{F0CD27DB-0923-48FF-9FB5-0F2F1C0AA695}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [ENTRY].[dbo].[FIFA_EXPORT]"
+          SQLTask:ServerVersion="9"
+          SQLTask:ExtendedLogging="True"
+          SQLTask:LocalConnectionForLogging=""
+          SQLTask:TaskName=""
+          SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Tarea Ejecutar SQL, Obtener Fecha Actual"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{2EAA3C28-3D1C-400A-82B3-93D8D4546ECD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tarea Ejecutar SQL, Obtener Fecha Actual"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{CF1A3D9A-6CF6-4B4F-A379-DC5C81724536}"
+          SQLTask:SqlStatementSource="select GETDATE() as Fecha_Test"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="Fecha_Test"
+            SQLTask:DtsVariableName="User::Fecha_Test" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{46EC91D7-B0B5-4C78-B88B-664FFEBDF73F}"
+      DTS:From="Package\Tarea Ejecutar instrucción T-SQL, Delete Data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Export Table FIFA" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -645,11 +724,41 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="168,42"
           Id="Package\Export Table FIFA"
-          TopLeft="271,129" />
+          TopLeft="535,202" />
+        <NodeLayout
+          Size="306,42"
+          Id="Package\Tarea Ejecutar instrucción T-SQL, Delete Data"
+          TopLeft="459,60" />
+        <NodeLayout
+          Size="289,42"
+          Id="Package\Tarea Ejecutar SQL, Obtener Fecha Actual"
+          TopLeft="35,61" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="615.5,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,100"
+              Start="0,0"
+              End="0,92.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,92.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -657,7 +766,7 @@
     design-time-name="Package\Export Table FIFA">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="217,42"
           Id="Package\Export Table FIFA\Source Table FIFA DB SSIS"
@@ -685,7 +794,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
