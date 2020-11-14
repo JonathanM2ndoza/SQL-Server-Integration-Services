@@ -1,0 +1,1 @@
+create table Contadores(Contador int not null,Hora Time)
