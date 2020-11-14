@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>SSIS-Demo-FIFA</Name>
-    <LastWriteTime>2020-11-14T20:41:08.1405149Z</LastWriteTime>
+    <LastWriteTime>2020-11-14T21:34:57.407998Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -28,7 +28,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Foreach-Loop-Container.dtsx</Name>
-      <LastWriteTime>2020-11-14T21:08:43.5158085Z</LastWriteTime>
+      <LastWriteTime>2020-11-14T21:10:01.8519655Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>For-Loop-Container.dtsx</Name>
+      <LastWriteTime>2020-11-14T21:34:57.3250749Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
