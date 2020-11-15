@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>SSIS-Demo-FIFA</Name>
-    <LastWriteTime>2020-11-15T22:24:46.1495148Z</LastWriteTime>
+    <LastWriteTime>2020-11-15T22:50:13.3436858Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -39,6 +39,11 @@
     <ProjectBuildItemInfo>
       <Name>Data-Flow-Aggregate.dtsx</Name>
       <LastWriteTime>2020-11-15T22:24:46.0266286Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Data-Flow-Conditional-Split.dtsx</Name>
+      <LastWriteTime>2020-11-15T22:50:13.3037228Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
