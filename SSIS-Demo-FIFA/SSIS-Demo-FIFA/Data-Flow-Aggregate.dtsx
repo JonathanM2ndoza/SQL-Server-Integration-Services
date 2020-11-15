@@ -1,0 +1,1122 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/15/2020 6:03:16 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-6HE6S1A"
+  DTS:CreatorName="DESKTOP-6HE6S1A\jmendoza"
+  DTS:DTSID="{B75003C6-61E3-4185-8891-2D39CD40F8E2}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.132"
+  DTS:LocaleID="3082"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{E91708A0-A098-464A-A037-2AC07EC7711F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[OLEDB_SQL_FIFA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{48C7828F-A008-4A67-9581-806A9DE12E94}"
+      DTS:ObjectName="OLEDB_SQL_FIFA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;User ID=sa;Initial Catalog=SSIS;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFAVMYqgzUSRa42z3oArVQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACHB7NEGMHJLTbKxlvgonf/EQ07xAtlU78EtMPmnHgRHQAAAAAOgAAAAAIAACAAAABUrVBRPBD/tYJOTTO3ZARVwlnzN5qfh5AbNgNQgpX5eiAAAAARdLr3HUi6+ntD5UlROzK1W5Yoqt8By+p02MOMnCo3jEAAAAAW0sUGQ0aCJb0Ts2aIZMcf6w8X3kLt6EIVOzNQ8MzfCdNsq1/J0NP8ROmg4cyrP58qOdmrVS6ifHEhNCsxZkN8</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Eliminar datos existentes"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tarea Ejecutar SQL"
+      DTS:DTSID="{8E946E6B-9BB3-422E-A18E-B44D4AF0B4B9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Eliminar datos existentes"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{48C7828F-A008-4A67-9581-806A9DE12E94}"
+          SQLTask:SqlStatementSource="Delete promedios;&#xA;Delete JugadoresPorNacionalidades;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Valores Agregados"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{F43CBF39-7F57-4D6A-B938-A35086483FA5}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Valores Agregados"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Valores Agregados\Agregado"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Agregado;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;3"
+              description="Agrega datos mediante funciones como Average, Sum, Count, Max y Min. Por ejemplo, se agrupan datos para calcular la suma de las ventas por producto o el promedio de visitas por día."
+              name="Agregado"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número aproximado de claves GROUP BY que produce la agregación. Mínimo indica 500.000 valores de clave, Medio indica 5.000.000 de valores de clave y Alto indica más de 25.000.000 de valores de clave. No especificado indica que no se usó ningún valor de KeyScale."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Especifica el número exacto de claves GROUP BY que produce la agregación. Si se especifica un valor de KeyScale, el valor de Keys tiene prioridad."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el número aproximado de valores distintos de una columna que cuenta la agregación de forma distintiva. Mínimo indica 500.000 valores de clave, Medio indica 5.000.000 de valores de clave y Alto indica más de 25.000.000 valores de clave. No especificado indica que no se usa ningún valor de CountDistinctScale."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Especifica el número exacto de valores distintos de una columna que cuenta la agregación de forma distintiva. Si se especifica un valor de CountDistinctScale, el valor de CountDistinctKeys tiene prioridad."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje en el que puede ampliarse la memoria durante la agregación. Los valores válidos están comprendidos entre 1 y 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Valores Agregados\Agregado.Inputs[Entrada de agregado 1]"
+                  name="Entrada de agregado 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Valores Agregados\Agregado.Inputs[Entrada de agregado 1].Columns[PiePreferido]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PiePreferido"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[PiePreferido]" />
+                    <inputColumn
+                      refId="Package\Valores Agregados\Agregado.Inputs[Entrada de agregado 1].Columns[PesoKG]"
+                      cachedDataType="i4"
+                      cachedName="PesoKG"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[PesoKG]" />
+                    <inputColumn
+                      refId="Package\Valores Agregados\Agregado.Inputs[Entrada de agregado 1].Columns[Nacionalidad]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Nacionalidad"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[Nacionalidad]" />
+                    <inputColumn
+                      refId="Package\Valores Agregados\Agregado.Inputs[Entrada de agregado 1].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[ID]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Valores Agregados\Agregado.Outputs[PromedioPeso]"
+                  name="PromedioPeso">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica el número aproximado de claves GROUP BY que produce la agregación. Mínimo indica 500.000 valores de clave, Medio indica 5.000.000 de valores de clave y Alto indica más de 25.000.000 de valores de clave. No especificado indica que no se usó ningún valor de KeyScale."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Especifica el número exacto de claves GROUP BY que produce la agregación. Si se especifica un valor de KeyScale, el valor de Keys tiene prioridad."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Valores Agregados\Agregado.Outputs[PromedioPeso].Columns[PiePreferido]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Valores Agregados\Agregado.Outputs[PromedioPeso].Columns[PiePreferido]"
+                      name="PiePreferido">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el id. de la columna de entrada usada en la agregación."
+                          name="AggregationColumnId">#{Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[PiePreferido]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el tipo de agregación."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indica si la columna requiere tratamiento especial porque puede contener datos de tamaño excesivo o porque requiere mayor precisión que el tipo de datos float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación de cadenas."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Valores Agregados\Agregado.Outputs[PromedioPeso].Columns[PesoKG]"
+                      dataType="r8"
+                      lineageId="Package\Valores Agregados\Agregado.Outputs[PromedioPeso].Columns[PesoKG]"
+                      name="PesoKG">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el id. de la columna de entrada usada en la agregación."
+                          name="AggregationColumnId">#{Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[PesoKG]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el tipo de agregación."
+                          name="AggregationType"
+                          typeConverter="AggregationType">5</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indica si la columna requiere tratamiento especial porque puede contener datos de tamaño excesivo o porque requiere mayor precisión que el tipo de datos float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación de cadenas."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Valores Agregados\Agregado.Outputs[JuagadoresPaises]"
+                  name="JuagadoresPaises">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Especifica el número aproximado de claves GROUP BY que produce la agregación. Mínimo indica 500.000 valores de clave, Medio indica 5.000.000 de valores de clave y Alto indica más de 25.000.000 de valores de clave. No especificado indica que no se usó ningún valor de KeyScale."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Especifica el número exacto de claves GROUP BY que produce la agregación. Si se especifica un valor de KeyScale, el valor de Keys tiene prioridad."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Valores Agregados\Agregado.Outputs[JuagadoresPaises].Columns[Nacionalidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Valores Agregados\Agregado.Outputs[JuagadoresPaises].Columns[Nacionalidad]"
+                      name="Nacionalidad">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el id. de la columna de entrada usada en la agregación."
+                          name="AggregationColumnId">#{Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[Nacionalidad]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el tipo de agregación."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indica si la columna requiere tratamiento especial porque puede contener datos de tamaño excesivo o porque requiere mayor precisión que el tipo de datos float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación de cadenas."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Valores Agregados\Agregado.Outputs[JuagadoresPaises].Columns[Cantidad]"
+                      dataType="ui4"
+                      lineageId="Package\Valores Agregados\Agregado.Outputs[JuagadoresPaises].Columns[Cantidad]"
+                      name="Cantidad">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Especifica el id. de la columna de entrada usada en la agregación."
+                          name="AggregationColumnId">#{Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[ID]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el tipo de agregación."
+                          name="AggregationType"
+                          typeConverter="AggregationType">3</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indica si la columna requiere tratamiento especial porque puede contener datos de tamaño excesivo o porque requiere mayor precisión que el tipo de datos float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica las opciones de comparación de cadenas."
+                          name="AggregationComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Especifica el número aproximado de valores distintos de una columna que cuenta la agregación de forma distintiva. Mínimo indica 500.000 valores de clave, Medio indica 5.000.000 de valores de clave y Alto indica más de 25.000.000 valores de clave. No especificado indica que no se usa ningún valor de CountDistinctScale."
+                          name="CountDistinctScale">0</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="Especifica el número exacto de valores distintos de una columna que cuenta la agregación de forma distintiva. Si se especifica un valor de CountDistinctScale, el valor de CountDistinctKeys tiene prioridad."
+                          name="CountDistinctKeys">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Valores Agregados\Jugadores por Nacionalidad"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Jugadores por Nacionalidad"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[JugadoresPorNacionalidades]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Valores Agregados\Jugadores por Nacionalidad.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[OLEDB_SQL_FIFA]"
+                  connectionManagerRefId="Package.ConnectionManagers[OLEDB_SQL_FIFA]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Valores Agregados\Jugadores por Nacionalidad.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Valores Agregados\Jugadores por Nacionalidad.Inputs[Entrada de destino de OLE DB].Columns[Nacionalidad]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="Nacionalidad"
+                      externalMetadataColumnId="Package\Valores Agregados\Jugadores por Nacionalidad.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nacionalidad]"
+                      lineageId="Package\Valores Agregados\Agregado.Outputs[JuagadoresPaises].Columns[Nacionalidad]" />
+                    <inputColumn
+                      refId="Package\Valores Agregados\Jugadores por Nacionalidad.Inputs[Entrada de destino de OLE DB].Columns[Cantidad]"
+                      cachedDataType="ui4"
+                      cachedName="Cantidad"
+                      externalMetadataColumnId="Package\Valores Agregados\Jugadores por Nacionalidad.Inputs[Entrada de destino de OLE DB].ExternalColumns[CantidadJugadores]"
+                      lineageId="Package\Valores Agregados\Agregado.Outputs[JuagadoresPaises].Columns[Cantidad]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Valores Agregados\Jugadores por Nacionalidad.Inputs[Entrada de destino de OLE DB].ExternalColumns[Nacionalidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Nacionalidad" />
+                    <externalMetadataColumn
+                      refId="Package\Valores Agregados\Jugadores por Nacionalidad.Inputs[Entrada de destino de OLE DB].ExternalColumns[CantidadJugadores]"
+                      dataType="i4"
+                      name="CantidadJugadores" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Valores Agregados\Jugadores por Nacionalidad.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Valores Agregados\Jugadores por Nacionalidad.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Valores Agregados\Jugadores por Nacionalidad.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Valores Agregados\Jugadores por Nacionalidad.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Jugadores por Nacionalidad.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Valores Agregados\Jugadores por Nacionalidad.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Valores Agregados\Origen de Datos FIFA"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Origen de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;7"
+              description="Origen de OLE DB"
+              name="Origen de Datos FIFA"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[FIFA]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable que contiene el comando SQL para ejecutar."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Asignaciones entre los parámetros del comando SQL y las variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Valores Agregados\Origen de Datos FIFA.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[OLEDB_SQL_FIFA]"
+                  connectionManagerRefId="Package.ConnectionManagers[OLEDB_SQL_FIFA]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB]"
+                  name="Salida de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[ID]"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre]"
+                      length="50"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[Nombre]"
+                      name="Nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[NombreCompleto]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreCompleto]"
+                      length="150"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[NombreCompleto]"
+                      name="NombreCompleto"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[Club]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[Club]"
+                      length="100"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[Club]"
+                      name="Club"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[Liga]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[Liga]"
+                      length="100"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[Liga]"
+                      name="Liga"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[FechaNacimiento]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaNacimiento]"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[FechaNacimiento]"
+                      name="FechaNacimiento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[AlturaCM]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[AlturaCM]"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[AlturaCM]"
+                      name="AlturaCM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[PesoKG]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[PesoKG]"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[PesoKG]"
+                      name="PesoKG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[Nacionalidad]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[Nacionalidad]"
+                      length="100"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[Nacionalidad]"
+                      name="Nacionalidad"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[ValorEuropa]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[ValorEuropa]"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[ValorEuropa]"
+                      name="ValorEuropa"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[PiePreferido]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[PiePreferido]"
+                      length="50"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[PiePreferido]"
+                      name="PiePreferido"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[PieEsp]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[PieEsp]"
+                      length="10"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].Columns[PieEsp]"
+                      name="PieEsp"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[NombreCompleto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      name="NombreCompleto" />
+                    <externalMetadataColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[Club]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Club" />
+                    <externalMetadataColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[Liga]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Liga" />
+                    <externalMetadataColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[FechaNacimiento]"
+                      dataType="dbDate"
+                      name="FechaNacimiento" />
+                    <externalMetadataColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[AlturaCM]"
+                      dataType="i4"
+                      name="AlturaCM" />
+                    <externalMetadataColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[PesoKG]"
+                      dataType="i4"
+                      name="PesoKG" />
+                    <externalMetadataColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[Nacionalidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="Nacionalidad" />
+                    <externalMetadataColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[ValorEuropa]"
+                      dataType="r8"
+                      name="ValorEuropa" />
+                    <externalMetadataColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[PiePreferido]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="PiePreferido" />
+                    <externalMetadataColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB].ExternalColumns[PieEsp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="PieEsp" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[ID]"
+                      dataType="i4"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[ID]"
+                      name="ID" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[Nombre]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[Nombre]"
+                      name="Nombre" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[NombreCompleto]"
+                      codePage="1252"
+                      dataType="str"
+                      length="150"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[NombreCompleto]"
+                      name="NombreCompleto" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[Club]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[Club]"
+                      name="Club" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[Liga]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[Liga]"
+                      name="Liga" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[FechaNacimiento]"
+                      dataType="dbDate"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[FechaNacimiento]"
+                      name="FechaNacimiento" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[AlturaCM]"
+                      dataType="i4"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[AlturaCM]"
+                      name="AlturaCM" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[PesoKG]"
+                      dataType="i4"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[PesoKG]"
+                      name="PesoKG" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[Nacionalidad]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[Nacionalidad]"
+                      name="Nacionalidad" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[ValorEuropa]"
+                      dataType="r8"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[ValorEuropa]"
+                      name="ValorEuropa" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[PiePreferido]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[PiePreferido]"
+                      name="PiePreferido" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[PieEsp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[PieEsp]"
+                      name="PieEsp" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de error de origen de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Valores Agregados\Peso Promedio por Pie Favorito"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Peso Promedio por Pie Favorito"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[dbo].[Promedios]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Solo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Valores Agregados\Peso Promedio por Pie Favorito.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[OLEDB_SQL_FIFA]"
+                  connectionManagerRefId="Package.ConnectionManagers[OLEDB_SQL_FIFA]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Valores Agregados\Peso Promedio por Pie Favorito.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Valores Agregados\Peso Promedio por Pie Favorito.Inputs[Entrada de destino de OLE DB].Columns[PiePreferido]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="PiePreferido"
+                      externalMetadataColumnId="Package\Valores Agregados\Peso Promedio por Pie Favorito.Inputs[Entrada de destino de OLE DB].ExternalColumns[PiePref]"
+                      lineageId="Package\Valores Agregados\Agregado.Outputs[PromedioPeso].Columns[PiePreferido]" />
+                    <inputColumn
+                      refId="Package\Valores Agregados\Peso Promedio por Pie Favorito.Inputs[Entrada de destino de OLE DB].Columns[PesoKG]"
+                      cachedDataType="r8"
+                      cachedName="PesoKG"
+                      externalMetadataColumnId="Package\Valores Agregados\Peso Promedio por Pie Favorito.Inputs[Entrada de destino de OLE DB].ExternalColumns[PromedioPesoKG]"
+                      lineageId="Package\Valores Agregados\Agregado.Outputs[PromedioPeso].Columns[PesoKG]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Valores Agregados\Peso Promedio por Pie Favorito.Inputs[Entrada de destino de OLE DB].ExternalColumns[PiePref]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="PiePref" />
+                    <externalMetadataColumn
+                      refId="Package\Valores Agregados\Peso Promedio por Pie Favorito.Inputs[Entrada de destino de OLE DB].ExternalColumns[PromedioPesoKG]"
+                      dataType="r8"
+                      name="PromedioPesoKG" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Valores Agregados\Peso Promedio por Pie Favorito.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\Valores Agregados\Peso Promedio por Pie Favorito.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Valores Agregados\Peso Promedio por Pie Favorito.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Valores Agregados\Peso Promedio por Pie Favorito.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Valores Agregados\Peso Promedio por Pie Favorito.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Valores Agregados\Peso Promedio por Pie Favorito.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Valores Agregados.Paths[JuagadoresPaises]"
+              endId="Package\Valores Agregados\Jugadores por Nacionalidad.Inputs[Entrada de destino de OLE DB]"
+              name="JuagadoresPaises"
+              startId="Package\Valores Agregados\Agregado.Outputs[JuagadoresPaises]" />
+            <path
+              refId="Package\Valores Agregados.Paths[PromedioPeso]"
+              endId="Package\Valores Agregados\Peso Promedio por Pie Favorito.Inputs[Entrada de destino de OLE DB]"
+              name="PromedioPeso"
+              startId="Package\Valores Agregados\Agregado.Outputs[PromedioPeso]" />
+            <path
+              refId="Package\Valores Agregados.Paths[Salida de origen de OLE DB]"
+              endId="Package\Valores Agregados\Agregado.Inputs[Entrada de agregado 1]"
+              name="Salida de origen de OLE DB"
+              startId="Package\Valores Agregados\Origen de Datos FIFA.Outputs[Salida de origen de OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{9670167D-05D0-4984-A80B-FF004C31823F}"
+      DTS:From="Package\Eliminar datos existentes"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Valores Agregados" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="196,42"
+          Id="Package\Eliminar datos existentes"
+          TopLeft="422,69" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Valores Agregados"
+          TopLeft="432,184" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="517.5,111">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73"
+              Start="0,0"
+              End="0,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Valores Agregados">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Valores Agregados\Origen de Datos FIFA"
+          TopLeft="437,44" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Valores Agregados\Agregado"
+          TopLeft="462,163" />
+        <EdgeLayout
+          Id="Package\Valores Agregados.Paths[Salida de origen de OLE DB]"
+          TopLeft="525.5,86">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77"
+              Start="0,0"
+              End="0,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="226,42"
+          Id="Package\Valores Agregados\Peso Promedio por Pie Favorito"
+          TopLeft="238,295" />
+        <EdgeLayout
+          Id="Package\Valores Agregados.Paths[PromedioPeso]"
+          TopLeft="524,205">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-173,90"
+              Start="0,0"
+              End="-173,82.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,41"
+                    Point2="0,45"
+                    Point3="-4,45" />
+                  <mssgle:LineSegment
+                    End="-169,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-169,45"
+                    Point2="-173,45"
+                    Point3="-173,49" />
+                  <mssgle:LineSegment
+                    End="-173,82.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-118.04703125,50,63.0940625,9.7490234375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="209,42"
+          Id="Package\Valores Agregados\Jugadores por Nacionalidad"
+          TopLeft="622,311" />
+        <EdgeLayout
+          Id="Package\Valores Agregados.Paths[JuagadoresPaises]"
+          TopLeft="543.333333333333,205">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="183.166666666667,106"
+              Start="0,0"
+              End="183.166666666667,98.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.2101910828025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,39.2101910828025"
+                    Point2="0,43.2101910828025"
+                    Point3="4,43.2101910828025" />
+                  <mssgle:LineSegment
+                    End="179.166666666667,43.2101910828025" />
+                  <mssgle:CubicBezierSegment
+                    Point1="179.166666666667,43.2101910828025"
+                    Point2="183.166666666667,43.2101910828025"
+                    Point3="183.166666666667,47.2101910828025" />
+                  <mssgle:LineSegment
+                    End="183.166666666667,98.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="52.0540755208333,48.2101910828025,79.058515625,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Valores Agregados\Origen de Datos FIFA">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Valores Agregados\Peso Promedio por Pie Favorito">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Valores Agregados\Jugadores por Nacionalidad">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
