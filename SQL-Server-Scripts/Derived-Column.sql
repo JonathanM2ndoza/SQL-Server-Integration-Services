@@ -1,0 +1,1 @@
+create table EdadJugadores(ID int,NombreCompleto varchar(150),Edad int)
