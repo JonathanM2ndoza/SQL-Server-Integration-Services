@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
-  DTS:CreationDate="11/15/2020 7:05:50 PM"
+  DTS:CreationDate="11/16/2020 8:59:40 PM"
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-6HE6S1A"
   DTS:CreatorName="DESKTOP-6HE6S1A\jmendoza"
-  DTS:DTSID="{7E0045C5-EF12-4A20-BC69-4789E07D20E7}"
+  DTS:DTSID="{1626A205-059E-401C-B016-4977799E78DC}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.2000.132"
   DTS:LocaleID="3082"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{F9DC1241-1918-4618-A3EB-98F8106394BF}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{F46BFBF7-C27F-4396-B304-223CAC5B1B7D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFAVMYqgzUSRa42z3oArVQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADY9506AkX01VqO2u1a432vlnjuXwGEOgKeGMc7/9nxOQAAAAAOgAAAAAIAACAAAAB+GJUD9XFwsfHvBPJqI7auVubSjfIEzhVxQZ2ieliu1CAAAAAGSTyVkSR652r9Jf2IMCjwGEnxnc7eFAUjGF8DB+BuHkAAAAD12MTTCsgNbNEBqI3p/UCsdg6M17Gz9bzIaN4s4SVAD5LBeiVcCeXsGPE/M5qvWjyE5QOC6f5ZLDofQXJ1Nd8w</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFAVMYqgzUSRa42z3oArVQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABd3XTU0ztAhE239a8CfErHRzXL4VysgNILRrGgD+bpiQAAAAAOgAAAAAIAACAAAACK8IcI2vv0MyEslyyQStRueWWNm872202DZjTwO4OyBCAAAACmSeqmo2FSxxH7zNbcundckY52/5976eTEaX8DVje/IkAAAAAx6rabP3JFl2PXQbC89I8whv80hwCwSC6aHkRamkQRz1KkbvCEagZka0axNmJbnQWIt4BP7b1EvsUt/u2bUJzp</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -38,7 +38,7 @@
       DTS:refId="Package\Inserta Jugadores por Edad"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tarea Flujo de datos"
-      DTS:DTSID="{0BD8A68A-6571-42E2-B680-673BA5042D7C}"
+      DTS:DTSID="{7b5f0328-21f0-4e89-811e-2231298d3ae3}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Inserta Jugadores por Edad"
@@ -49,20 +49,177 @@
           version="1">
           <components>
             <component
-              refId="Package\Inserta Jugadores por Edad\Columna derivada"
+              refId="Package\Inserta Jugadores por Edad\Buscar ID"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Búsqueda;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;6"
+              description="Combina columnas adicionales con el flujo de datos mediante la búsqueda de valores en una tabla. Por ejemplo, se combina la columna 'id. de empleado' con la tabla de empleados para obtener la 'fecha de contratación' y 'el nombre de empleado'. Se recomienda esta transformación cuando hay suficiente espacio en memoria para la tabla de búsqueda."
+              name="Buscar ID"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL que genera la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[EdadJugadores]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica una instrucción SQL que usa parámetros para generar la tabla de búsqueda."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[EdadJugadores]) [refTable]
+where [refTable].[ID] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de conexión utilizado para tener acceso al conjunto de datos de referencia."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el tipo de caché de la tabla de búsqueda."
+                  name="CacheType"
+                  typeConverter="CacheType">2</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cómo la transformación de búsquedas trata las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el porcentaje de la caché asignado a las filas sin entradas coincidentes en el conjunto de datos de referencia."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Uso de memoria máximo para la caché de referencia en una plataforma de 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indica si se debe hacer referencia a metadatos en formato XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NombreCompleto" dataType="DT_STR" length="150" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Edad" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Especifica la lista de identificadores de linaje que están asignados a los parámetros que usa la instrucción SQL de la propiedad SQLCommand. Las entradas de la lista están separadas por puntos y comas."
+                  name="ParameterMap">#{Package\Inserta Jugadores por Edad\Origen de Datos.Outputs[Salida de origen de OLE DB].Columns[ID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determina si las claves duplicadas de los datos de referencia se deben tratar como errores cuando se usa el modo de caché."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Inserta Jugadores por Edad\Buscar ID.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[OLEDB_SQL_FIFA]"
+                  connectionManagerRefId="Package.ConnectionManagers[OLEDB_SQL_FIFA]"
+                  description="Administrador de conexiones utilizado para obtener acceso a los datos de búsqueda."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Inserta Jugadores por Edad\Buscar ID.Inputs[Entrada de búsqueda]"
+                  name="Entrada de búsqueda">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Inserta Jugadores por Edad\Buscar ID.Inputs[Entrada de búsqueda].Columns[ID]"
+                      cachedDataType="i4"
+                      cachedName="ID"
+                      lineageId="Package\Inserta Jugadores por Edad\Origen de Datos.Outputs[Salida de origen de OLE DB].Columns[ID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia con la que se combina una columna."
+                          name="JoinToReferenceColumn">ID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Inserta Jugadores por Edad\Buscar ID.Outputs[Salida de entradas coincidentes de búsqueda]"
+                  errorOrTruncationOperation="Búsqueda"
+                  exclusionGroup="1"
+                  name="Salida de entradas coincidentes de búsqueda"
+                  synchronousInputId="Package\Inserta Jugadores por Edad\Buscar ID.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Inserta Jugadores por Edad\Buscar ID.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ID]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copiar columna"
+                      lineageId="Package\Inserta Jugadores por Edad\Buscar ID.Outputs[Salida de entradas coincidentes de búsqueda].Columns[ID]"
+                      name="ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Especifica la columna de la tabla de referencia de la que se copia una columna."
+                          name="CopyFromReferenceColumn">ID</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Inserta Jugadores por Edad\Buscar ID.Outputs[Salida de entradas no coincidentes de búsqueda]"
+                  description="Salida de búsqueda que trata las filas sin entradas coincidentes en el conjunto de datos de referencia. Utilice esta salida cuando la propiedad NoMatchBehavior esté establecida en 'Enviar las filas sin entradas coincidentes a la salida de entradas no coincidentes'."
+                  exclusionGroup="1"
+                  name="Salida de entradas no coincidentes de búsqueda"
+                  synchronousInputId="Package\Inserta Jugadores por Edad\Buscar ID.Inputs[Entrada de búsqueda]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Inserta Jugadores por Edad\Buscar ID.Outputs[Salida de error de búsqueda]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de búsqueda"
+                  synchronousInputId="Package\Inserta Jugadores por Edad\Buscar ID.Inputs[Entrada de búsqueda]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Inserta Jugadores por Edad\Buscar ID.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Inserta Jugadores por Edad\Buscar ID.Outputs[Salida de error de búsqueda].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Inserta Jugadores por Edad\Buscar ID.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Inserta Jugadores por Edad\Buscar ID.Outputs[Salida de error de búsqueda].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Inserta Jugadores por Edad\Calcular Edad"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Columna derivada;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;0"
               description="Crea nuevos valores de columna aplicando expresiones a las columnas de entrada de la transformación. Crea nuevas columnas o sobrescribe las columnas existentes. Por ejemplo, se concatenan los valores de las columnas 'nombre' y 'apellidos' para crear una columna 'nombre completo'."
-              name="Columna derivada"
+              name="Calcular Edad"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Inserta Jugadores por Edad\Columna derivada.Inputs[Entrada de columna derivada]"
+                  refId="Package\Inserta Jugadores por Edad\Calcular Edad.Inputs[Entrada de columna derivada]"
                   description="Entrada en la transformación Columna derivada"
                   name="Entrada de columna derivada">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Inserta Jugadores por Edad\Columna derivada.Inputs[Entrada de columna derivada].Columns[FechaNacimiento]"
+                      refId="Package\Inserta Jugadores por Edad\Calcular Edad.Inputs[Entrada de columna derivada].Columns[FechaNacimiento]"
                       cachedDataType="dbDate"
                       cachedName="FechaNacimiento"
                       lineageId="Package\Inserta Jugadores por Edad\Origen de Datos.Outputs[Salida de origen de OLE DB].Columns[FechaNacimiento]" />
@@ -72,18 +229,18 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Inserta Jugadores por Edad\Columna derivada.Outputs[Salida de columna derivada]"
+                  refId="Package\Inserta Jugadores por Edad\Calcular Edad.Outputs[Salida de columna derivada]"
                   description="Salida predeterminada de la transformación Columna derivada"
                   exclusionGroup="1"
                   name="Salida de columna derivada"
-                  synchronousInputId="Package\Inserta Jugadores por Edad\Columna derivada.Inputs[Entrada de columna derivada]">
+                  synchronousInputId="Package\Inserta Jugadores por Edad\Calcular Edad.Inputs[Entrada de columna derivada]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Inserta Jugadores por Edad\Columna derivada.Outputs[Salida de columna derivada].Columns[Edad]"
+                      refId="Package\Inserta Jugadores por Edad\Calcular Edad.Outputs[Salida de columna derivada].Columns[Edad]"
                       dataType="i4"
                       errorOrTruncationOperation="Cálculo"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Inserta Jugadores por Edad\Columna derivada.Outputs[Salida de columna derivada].Columns[Edad]"
+                      lineageId="Package\Inserta Jugadores por Edad\Calcular Edad.Outputs[Salida de columna derivada].Columns[Edad]"
                       name="Edad"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -104,23 +261,23 @@
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Inserta Jugadores por Edad\Columna derivada.Outputs[Salida de error de columna derivada]"
+                  refId="Package\Inserta Jugadores por Edad\Calcular Edad.Outputs[Salida de error de columna derivada]"
                   description="Salida de error de la transformación Columna derivada"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de columna derivada"
-                  synchronousInputId="Package\Inserta Jugadores por Edad\Columna derivada.Inputs[Entrada de columna derivada]">
+                  synchronousInputId="Package\Inserta Jugadores por Edad\Calcular Edad.Inputs[Entrada de columna derivada]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Inserta Jugadores por Edad\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      refId="Package\Inserta Jugadores por Edad\Calcular Edad.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Inserta Jugadores por Edad\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
+                      lineageId="Package\Inserta Jugadores por Edad\Calcular Edad.Outputs[Salida de error de columna derivada].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Inserta Jugadores por Edad\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      refId="Package\Inserta Jugadores por Edad\Calcular Edad.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Inserta Jugadores por Edad\Columna derivada.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
+                      lineageId="Package\Inserta Jugadores por Edad\Calcular Edad.Outputs[Salida de error de columna derivada].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -129,11 +286,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Inserta Jugadores por Edad\Destino de OLE DB"
+              refId="Package\Inserta Jugadores por Edad\Insertar Edad"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
               description="Destino de OLE DB"
-              name="Destino de OLE DB"
+              name="Insertar Edad"
               usesDispositions="true"
               version="4">
               <properties>
@@ -186,7 +343,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Inserta Jugadores por Edad\Destino de OLE DB.Connections[OleDbConnection]"
+                  refId="Package\Inserta Jugadores por Edad\Insertar Edad.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[OLEDB_SQL_FIFA]"
                   connectionManagerRefId="Package.ConnectionManagers[OLEDB_SQL_FIFA]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
@@ -194,47 +351,47 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Inserta Jugadores por Edad\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+                  refId="Package\Inserta Jugadores por Edad\Insertar Edad.Inputs[Entrada de destino de OLE DB]"
                   errorOrTruncationOperation="Insertar"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrada de destino de OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Inserta Jugadores por Edad\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[ID]"
+                      refId="Package\Inserta Jugadores por Edad\Insertar Edad.Inputs[Entrada de destino de OLE DB].Columns[ID]"
                       cachedDataType="i4"
                       cachedName="ID"
-                      externalMetadataColumnId="Package\Inserta Jugadores por Edad\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID]"
+                      externalMetadataColumnId="Package\Inserta Jugadores por Edad\Insertar Edad.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID]"
                       lineageId="Package\Inserta Jugadores por Edad\Origen de Datos.Outputs[Salida de origen de OLE DB].Columns[ID]" />
                     <inputColumn
-                      refId="Package\Inserta Jugadores por Edad\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[NombreCompleto]"
+                      refId="Package\Inserta Jugadores por Edad\Insertar Edad.Inputs[Entrada de destino de OLE DB].Columns[NombreCompleto]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="150"
                       cachedName="NombreCompleto"
-                      externalMetadataColumnId="Package\Inserta Jugadores por Edad\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCompleto]"
+                      externalMetadataColumnId="Package\Inserta Jugadores por Edad\Insertar Edad.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCompleto]"
                       lineageId="Package\Inserta Jugadores por Edad\Origen de Datos.Outputs[Salida de origen de OLE DB].Columns[NombreCompleto]" />
                     <inputColumn
-                      refId="Package\Inserta Jugadores por Edad\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].Columns[Edad]"
+                      refId="Package\Inserta Jugadores por Edad\Insertar Edad.Inputs[Entrada de destino de OLE DB].Columns[Edad]"
                       cachedDataType="i4"
                       cachedName="Edad"
-                      externalMetadataColumnId="Package\Inserta Jugadores por Edad\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Edad]"
-                      lineageId="Package\Inserta Jugadores por Edad\Columna derivada.Outputs[Salida de columna derivada].Columns[Edad]" />
+                      externalMetadataColumnId="Package\Inserta Jugadores por Edad\Insertar Edad.Inputs[Entrada de destino de OLE DB].ExternalColumns[Edad]"
+                      lineageId="Package\Inserta Jugadores por Edad\Calcular Edad.Outputs[Salida de columna derivada].Columns[Edad]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Inserta Jugadores por Edad\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID]"
+                      refId="Package\Inserta Jugadores por Edad\Insertar Edad.Inputs[Entrada de destino de OLE DB].ExternalColumns[ID]"
                       dataType="i4"
                       name="ID" />
                     <externalMetadataColumn
-                      refId="Package\Inserta Jugadores por Edad\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCompleto]"
+                      refId="Package\Inserta Jugadores por Edad\Insertar Edad.Inputs[Entrada de destino de OLE DB].ExternalColumns[NombreCompleto]"
                       codePage="1252"
                       dataType="str"
                       length="150"
                       name="NombreCompleto" />
                     <externalMetadataColumn
-                      refId="Package\Inserta Jugadores por Edad\Destino de OLE DB.Inputs[Entrada de destino de OLE DB].ExternalColumns[Edad]"
+                      refId="Package\Inserta Jugadores por Edad\Insertar Edad.Inputs[Entrada de destino de OLE DB].ExternalColumns[Edad]"
                       dataType="i4"
                       name="Edad" />
                   </externalMetadataColumns>
@@ -242,22 +399,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Inserta Jugadores por Edad\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB]"
+                  refId="Package\Inserta Jugadores por Edad\Insertar Edad.Outputs[Salida de error de destino de OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Salida de error de destino de OLE DB"
-                  synchronousInputId="Package\Inserta Jugadores por Edad\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]">
+                  synchronousInputId="Package\Inserta Jugadores por Edad\Insertar Edad.Inputs[Entrada de destino de OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Inserta Jugadores por Edad\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      refId="Package\Inserta Jugadores por Edad\Insertar Edad.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Inserta Jugadores por Edad\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\Inserta Jugadores por Edad\Insertar Edad.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Inserta Jugadores por Edad\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      refId="Package\Inserta Jugadores por Edad\Insertar Edad.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Inserta Jugadores por Edad\Destino de OLE DB.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\Inserta Jugadores por Edad\Insertar Edad.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -417,12 +574,17 @@
           <paths>
             <path
               refId="Package\Inserta Jugadores por Edad.Paths[Salida de columna derivada]"
-              endId="Package\Inserta Jugadores por Edad\Destino de OLE DB.Inputs[Entrada de destino de OLE DB]"
+              endId="Package\Inserta Jugadores por Edad\Insertar Edad.Inputs[Entrada de destino de OLE DB]"
               name="Salida de columna derivada"
-              startId="Package\Inserta Jugadores por Edad\Columna derivada.Outputs[Salida de columna derivada]" />
+              startId="Package\Inserta Jugadores por Edad\Calcular Edad.Outputs[Salida de columna derivada]" />
+            <path
+              refId="Package\Inserta Jugadores por Edad.Paths[Salida de entradas no coincidentes de búsqueda]"
+              endId="Package\Inserta Jugadores por Edad\Calcular Edad.Inputs[Entrada de columna derivada]"
+              name="Salida de entradas no coincidentes de búsqueda"
+              startId="Package\Inserta Jugadores por Edad\Buscar ID.Outputs[Salida de entradas no coincidentes de búsqueda]" />
             <path
               refId="Package\Inserta Jugadores por Edad.Paths[Salida de origen de OLE DB]"
-              endId="Package\Inserta Jugadores por Edad\Columna derivada.Inputs[Entrada de columna derivada]"
+              endId="Package\Inserta Jugadores por Edad\Buscar ID.Inputs[Entrada de búsqueda]"
               name="Salida de origen de OLE DB"
               startId="Package\Inserta Jugadores por Edad\Origen de Datos.Outputs[Salida de origen de OLE DB]" />
           </paths>
@@ -445,7 +607,7 @@
         <NodeLayout
           Size="209,42"
           Id="Package\Inserta Jugadores por Edad"
-          TopLeft="135,108" />
+          TopLeft="60,60" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -453,44 +615,22 @@
     design-time-name="Package\Inserta Jugadores por Edad">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Inserta Jugadores por Edad\Insertar Edad"
+          TopLeft="394,420" />
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Inserta Jugadores por Edad\Calcular Edad"
+          TopLeft="399,273" />
         <NodeLayout
           Size="155,42"
           Id="Package\Inserta Jugadores por Edad\Origen de Datos"
-          TopLeft="398,70" />
-        <NodeLayout
-          Size="164,42"
-          Id="Package\Inserta Jugadores por Edad\Columna derivada"
-          TopLeft="400,187" />
-        <EdgeLayout
-          Id="Package\Inserta Jugadores por Edad.Paths[Salida de origen de OLE DB]"
-          TopLeft="478.75,112">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,75"
-              Start="0,0"
-              End="0,67.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,67.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Inserta Jugadores por Edad\Destino de OLE DB"
-          TopLeft="395,334" />
+          TopLeft="396,34" />
         <EdgeLayout
           Id="Package\Inserta Jugadores por Edad.Paths[Salida de columna derivada]"
-          TopLeft="480.5,229">
+          TopLeft="468,315">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -510,27 +650,79 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="125,42"
+          Id="Package\Inserta Jugadores por Edad\Buscar ID"
+          TopLeft="411,152" />
+        <EdgeLayout
+          Id="Package\Inserta Jugadores por Edad.Paths[Salida de origen de OLE DB]"
+          TopLeft="473.5,76">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,76"
+              Start="0,0"
+              End="0,68.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,68.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Inserta Jugadores por Edad.Paths[Salida de entradas no coincidentes de búsqueda]"
+          TopLeft="472,194">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,79"
+              Start="0,0"
+              End="0,71.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,71.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-106.8890234375,29.65234375,213.778046875,12.1953125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Inserta Jugadores por Edad\Origen de Datos">
+    design-time-name="Package\Inserta Jugadores por Edad\Buscar ID">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
       </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Inserta Jugadores por Edad\Destino de OLE DB">
-    <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[EdadJugadores]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
