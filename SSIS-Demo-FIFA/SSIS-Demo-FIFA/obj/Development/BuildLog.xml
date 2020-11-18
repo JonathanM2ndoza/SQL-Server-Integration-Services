@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>SSIS-Demo-FIFA</Name>
-    <LastWriteTime>2020-11-17T01:55:00.8166887Z</LastWriteTime>
+    <LastWriteTime>2020-11-18T01:19:00.7192881Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -58,7 +58,12 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Data-Flow-Lookup-Cache.dtsx</Name>
-      <LastWriteTime>2020-11-17T01:56:28.5254758Z</LastWriteTime>
+      <LastWriteTime>2020-11-17T01:58:39.0995637Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Data-Flow-Merge.dtsx</Name>
+      <LastWriteTime>2020-11-18T01:23:20.3709376Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
