@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>SSIS-Demo-FIFA</Name>
-    <LastWriteTime>2020-11-24T00:11:01.8346582Z</LastWriteTime>
+    <LastWriteTime>2020-11-26T01:04:12.5143777Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -94,6 +94,11 @@
     <ProjectBuildItemInfo>
       <Name>Slowly-Changing-Dimension.dtsx</Name>
       <LastWriteTime>2020-11-24T00:11:01.6448345Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Export-Import-Column.dtsx</Name>
+      <LastWriteTime>2020-11-26T01:15:37.7385223Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
