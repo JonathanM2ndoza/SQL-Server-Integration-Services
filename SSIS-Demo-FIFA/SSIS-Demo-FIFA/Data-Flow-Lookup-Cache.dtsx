@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{77B1494D-D77F-4C4E-9E87-3291A3B4CB50}">
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{4515C2F4-3097-4FFF-BA73-856455FD8FB0}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -92,7 +92,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFAVMYqgzUSRa42z3oArVQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAxfxTDgJvw8tk7Hwj2puhW/hD8ALUjXfrlR7KjxVVlrQAAAAAOgAAAAAIAACAAAADgcF+Y76logiMDG6GGK7jh0zkWFqWZwfE81S9DzrTcvSAAAACbN/dne2S4P4YVUwr4fbQk/gxWCzNNSpwytuUJHBrnOUAAAACk0Gz5KJvP7MK7KztORgfqVZL22qWyU9ah2Sj/a1r7tTCFHmuF7tKwqOZ04GLoB0g5mUWuG2soJoBKcaeAL/lf</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAVGdgaVYickqa/v0sNS+OvwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACXtZaTYtNy7USb+AXILByXzXkCmPXgFnLeMS0iVhmrawAAAAAOgAAAAAIAACAAAACL480GsVz1CC4rbJLRu+5fPrhwV1qMkixPSjEtijOBpSAAAAA5ua963NtEV4HcU1/UANyU6xHTvQxnlqQfNan3dkHWN0AAAACv2n5iniqC8MDYrsYppbaAxmWXiAp39wVqdkZza/0J129Sh3coH+cLVxFdhpCyCE4zin72waXZUSUA2hKTfYt6</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -107,7 +107,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFAVMYqgzUSRa42z3oArVQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD3qRxYS00w3gmaNrvyh+VzSxMGdcvT1VcloUcBbNwG3gAAAAAOgAAAAAIAACAAAAA7cFAmSO0ZmPNO8asXpJUEJ+b4in3p9+sBVbaVdgcPniAAAAAaUGkJgdLbMyeo48ED8IzIVV5YYyuZVVQdpd1VXedhrEAAAAAvZB77/fzKTfSeZNEWreBTzvyj48eUFO8AkbayVfePxko4I/FNEb98OMGMY4YUHxx2u5lhGMOgK9bk+I87Ja5h</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAVGdgaVYickqa/v0sNS+OvwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB0rDrpXq5/Y8idYmAPRjHOh4TcYB3UN4SPoIeuUh/JEQAAAAAOgAAAAAIAACAAAAAbq4pvtjZ+8iC3XuOcqpVuAyD6+dIhxYFulM24CBPRDiAAAABOav94uNCBiAeQfhe7hkszmUgqNhZayUjZzWw9a7fXOEAAAADhawnKJv1Qe0xdc4DY8A9njpvItiYRbzN9LH1JGgQrF+5VqYln9ln4090kP+zR6zx/OeFe/Bd0LIw9M0SLc2Yp</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -839,7 +839,8 @@ FROM            EdadJugadores</property>
               componentClassID="Microsoft.Cache"
               contactInfo="Transformación de caché;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
               description="Escribe datos en una memoria caché (archivo .caw) con el Administrador de conexiones de caché. Para reducir la carga de la base de datos, se debe reutilizar la memoria caché entre varias transformaciones Búsqueda. Para reducir el uso de la memoria, se debe compartir la memoria caché. Nota: los datos de la memoria caché se almacenan sin cifrar, por lo que no se recomienda su uso para información confidencial."
-              name="Transformación de caché">
+              name="Transformación de caché"
+              version="1">
               <properties>
                 <property
                   dataType="System.Boolean"
@@ -946,13 +947,13 @@ FROM            EdadJugadores</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="162,42"
-          Id="Package\Seleccionar Datos"
-          TopLeft="283,99" />
-        <NodeLayout
           Size="129,42"
           Id="Package\Con Cache"
           TopLeft="297,228" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\Seleccionar Datos"
+          TopLeft="283,99" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="362.75,141">
@@ -979,44 +980,6 @@ FROM            EdadJugadores</property>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Seleccionar Datos">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="155,42"
-          Id="Package\Seleccionar Datos\Origen de Datos"
-          TopLeft="361,84" />
-        <NodeLayout
-          Size="197,42"
-          Id="Package\Seleccionar Datos\Transformación de caché"
-          TopLeft="334,196" />
-        <EdgeLayout
-          Id="Package\Seleccionar Datos.Paths[Salida de origen de OLE DB]"
-          TopLeft="435.5,126">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,70"
-              Start="0,0"
-              End="0,62.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,62.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
     design-time-name="Package\Con Cache">
     <LayoutInfo>
       <GraphLayout
@@ -1036,7 +999,7 @@ FROM            EdadJugadores</property>
         <NodeLayout
           Size="143,42"
           Id="Package\Con Cache\Insertar Edad"
-          TopLeft="479,505" />
+          TopLeft="490,505" />
         <EdgeLayout
           Id="Package\Con Cache.Paths[Salida de origen de OLE DB]"
           TopLeft="558.5,161">
@@ -1085,7 +1048,7 @@ FROM            EdadJugadores</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Con Cache.Paths[Salida de columna derivada]"
-          TopLeft="553,400">
+          TopLeft="558.5,400">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1109,20 +1072,58 @@ FROM            EdadJugadores</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Seleccionar Datos\Origen de Datos">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Con Cache\Buscar ID">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Seleccionar Datos">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Seleccionar Datos\Origen de Datos"
+          TopLeft="361,84" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Seleccionar Datos\Transformación de caché"
+          TopLeft="334,196" />
+        <EdgeLayout
+          Id="Package\Seleccionar Datos.Paths[Salida de origen de OLE DB]"
+          TopLeft="435.5,126">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70"
+              Start="0,0"
+              End="0,62.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Seleccionar Datos\Origen de Datos">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
