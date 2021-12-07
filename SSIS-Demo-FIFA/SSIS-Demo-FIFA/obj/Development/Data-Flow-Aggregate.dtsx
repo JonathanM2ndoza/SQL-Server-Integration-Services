@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{E91708A0-A098-464A-A037-2AC07EC7711F}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{8FB13EC9-21E4-413B-90F0-A1F817829C8D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,12 +23,7 @@
       DTS:ObjectName="OLEDB_SQL_FIFA">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;User ID=sa;Initial Catalog=SSIS;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFAVMYqgzUSRa42z3oArVQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAACgxXvClBI7c0J/rDWIV6gUW1+C951Rh8NwK7oOI3As+gAAAAAOgAAAAAIAACAAAAD6O1cxIkWxzg07qGEhpNBzHl8+Jdei7/h3EZIZp7pH3iAAAACN0P9zvfMgpW8xNXMas2HiNvw5fw0rhg4f+k0NlGFX9kAAAAA+kas7UIM0BdkD2A00A1vrg+bR/L5rWX0Zsg+H69Id5H6OwSZTPxrbCwCgNa9yUCgVOjGVnkHNG9P0oH4BaY5y</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=.;User ID=sa;Initial Catalog=SSIS;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -931,14 +926,14 @@
         <NodeLayout
           Size="196,42"
           Id="Package\Eliminar datos existentes"
-          TopLeft="422,69" />
+          TopLeft="510,77" />
         <NodeLayout
           Size="166,42"
           Id="Package\Valores Agregados"
-          TopLeft="432,184" />
+          TopLeft="520,192" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="517.5,111">
+          TopLeft="605.5,119">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1080,6 +1075,19 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Valores Agregados\Jugadores por Nacionalidad">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Valores Agregados\Origen de Datos FIFA">
     <Properties>
       <Property>
@@ -1094,19 +1102,6 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Valores Agregados\Peso Promedio por Pie Favorito">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Valores Agregados\Jugadores por Nacionalidad">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

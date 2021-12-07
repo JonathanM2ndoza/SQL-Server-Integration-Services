@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{941BC548-F394-4F39-A574-E42ABB204247}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{756D216D-B97A-44A8-8402-F456ABF46673}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -50,7 +50,7 @@
         <NodeLayout
           Size="258,42"
           Id="Package\Tarea Ejecutar paquete de CalcTask"
-          TopLeft="122,98" />
+          TopLeft="140,97" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
