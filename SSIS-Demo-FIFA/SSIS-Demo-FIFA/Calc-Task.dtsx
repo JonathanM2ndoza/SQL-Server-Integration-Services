@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{CAE65C90-DA66-4FFC-916C-11CDA7E9D5F1}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{E9F01E16-8FE6-4A5C-A2CD-ADD381CB9C4B}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -49,7 +49,7 @@
         <NodeLayout
           Size="284,42"
           Id="Package\Tarea Ejecutar proceso, Abrir Calculadora"
-          TopLeft="83,62" />
+          TopLeft="101,59" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
