@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{E6A03389-CBD8-4A36-8FBB-D96E5354AEFC}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{19D9FDDF-CB61-427F-9489-6172027491AB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -23,12 +23,7 @@
       DTS:ObjectName="OLEDB_SQL_SSIS">
       <DTS:ObjectData>
         <DTS:ConnectionManager
-          DTS:ConnectionString="Data Source=.;User ID=sa;Initial Catalog=SSIS;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
-          <DTS:Password
-            DTS:Name="Password"
-            Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFAVMYqgzUSRa42z3oArVQAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAABfHCNs2LXLDW1CQh2+FKrSAAjzySttTtBR7kVVXzDgTQAAAAAOgAAAAAIAACAAAADzha9Ki+hTkhh0aplNl1Jf8n3wAyAa2dGs2ss4Sz6f+iAAAABK/D7So5felH95mLO4NBiL249wDAYy6aEOR1U4BxLa10AAAADVelFlFVMXNqggsd75dYlrZmuNhshbdp7oaE09rv4sKVDIV4R4kz8zt6/D8WBi26GU97IoZoZaShUq08HpMYSW</DTS:Password>
-        </DTS:ConnectionManager>
+          DTS:ConnectionString="Data Source=.;User ID=sa;Initial Catalog=SSIS;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -111,10 +106,10 @@
         <NodeLayout
           Size="165,42"
           Id="Package\Sequence Container\Renombrar Tabla"
-          TopLeft="107,168" />
+          TopLeft="111,168" />
         <EdgeLayout
           Id="Package\Sequence Container.PrecedenceConstraints[Constraint]"
-          TopLeft="189,62">
+          TopLeft="191,62">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
